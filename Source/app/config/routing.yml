@@ -1,3 +1,4 @@
-app:
-    resource: "@AppBundle/Controller/"
+ambu_shift:
+    resource: "@AmbuShiftBundle/Controller/"
     type:     annotation
+    prefix:   /
