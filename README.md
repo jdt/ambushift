@@ -6,7 +6,7 @@ Add modules to the Puppet directory with
 puppet module install <module name> --target-dir /vagrant/Build/Puppet/dev/modules
 
 ### Modules used
-puppetlabs-mysql
+example42-mysql
 example42-apache
 willdurand-composer
 

@@ -24,10 +24,15 @@ apache::vhost
   docroot => '/vagrant/Source/web'
 }
 
-class 
-{ 
-	'::mysql::server':
- 		root_password           => 'root'
+class { "mysql":
+  root_password => 'root',
+  template => "ambushift/my.cnf"
+}
+
+mysql::grant { 'ambushift':
+  mysql_user     => 'ambushift',
+  mysql_password => 'ambushift',
+  mysql_host     => '%',
 }
 
 class
