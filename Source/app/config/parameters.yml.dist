@@ -12,3 +12,5 @@ parameters:
     mailer_user: null
     mailer_password: null
     secret: dd8af1361722e5e69b14879dde2992b36d599062
+
+    table_prefix: ambushift_
