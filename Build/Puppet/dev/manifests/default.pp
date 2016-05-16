@@ -50,6 +50,18 @@ class
 	'phpunit':
 }
 
+exec { 'add NPM repo':
+  command => "curl -sL https://deb.nodesource.com/setup_4.x | sudo -E bash -"
+}
+
+exec { 'install NPDM':
+  command => "apt-get install -y nodejs"
+}
+
+exec { 'install bower':
+  command => "npm install -g bower"
+}
+
 exec { 'composer install':
   command => "/usr/local/bin/composer install",
   cwd => "/vagrant/Source",
@@ -58,5 +70,10 @@ exec { 'composer install':
 
 exec { 'migrate databases':
   command => "php bin/console doctrine:migrations:migrate -n",
+  cwd => "/vagrant/Source",
+}
+
+exec { 'bower install':
+  command => "bower install --allow-root",
   cwd => "/vagrant/Source",
 }
