@@ -13,3 +13,6 @@ willdurand-composer
 ### Custom modules
 php
 phpunit
+
+## Themes ##
+Based on the 'Paper Kit' theme from http://www.creative-tim.com/product/paper-kit
