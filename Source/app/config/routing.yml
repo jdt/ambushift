@@ -1,6 +1,5 @@
-ambu_shift:
-    resource: "@AmbuShiftBundle/Controller/"
-    type:     annotation
+ambushift:
+    resource: "@AmbuShiftBundle/Resources/config/routing.yml"
     prefix:   /
 
 fos_user:

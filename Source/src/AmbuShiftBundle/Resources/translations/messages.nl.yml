@@ -1,3 +1,7 @@
 login:
     forgotpassword: Paswoord vergeten?
     usernameoremail: E-mailadres of gebruikersnaam
+
+nav:
+    home: Overzicht
+    logout: Afmelden

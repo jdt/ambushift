@@ -4,5 +4,14 @@ services:
 #        arguments: ["@service_id", "plain_value", %parameter%]
 
   ambushiftnamingstrategy:
-      class: AmbuShiftBundle\Repository\Doctrine\AmbuShiftNamingStrategy
-      arguments: ["%table_prefix%"]
+    class: AmbuShiftBundle\Repository\Doctrine\AmbuShiftNamingStrategy
+    arguments: ["%table_prefix%"]
+
+
+  controller.home:
+    class: AmbuShiftBundle\Controller\HomeController
+    arguments: ["@util.responsebuilder"]
+
+  util.responsebuilder:
+    class: AmbuShiftBundle\Util\ResponseBuilder
+    arguments: ["@templating"]
