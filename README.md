@@ -1,6 +1,9 @@
 # ambucheck
 An online ambulance shift planning tool
 
+## Running
+Simply 'vagrant up' and point a browser to http://localhost/app_dev.php Note that the installation downloads and installs required libraries via composer, but that there is no output for this on the vagrant output. It might seem as if the installation hangs for a bit, but it is recommended to let it run for some time before aborting. While this is happening you should see files and directories being created in the Source/vendor directory.
+
 ## Adding modules
 Add modules to the Puppet directory with
 puppet module install <module name> --target-dir /vagrant/Build/Puppet/dev/modules
