@@ -1,0 +1,12 @@
+AmbuShiftBundle\Entity\Shift:
+    type:  entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        from:
+            type: datetime
+        to:
+            type: datetime
