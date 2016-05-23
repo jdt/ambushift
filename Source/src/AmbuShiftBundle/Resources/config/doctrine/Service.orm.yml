@@ -9,3 +9,9 @@ AmbuShiftBundle\Entity\Service:
         description:
             type: string
             length: 50
+    oneToMany:
+        shifts:
+            targetEntity: AmbuShiftBundle\Entity\Shift
+            mappedBy: shift
+            orphanRemoval: true
+            cascade: ["persist", "remove"]
