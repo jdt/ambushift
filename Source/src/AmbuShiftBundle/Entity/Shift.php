@@ -1,6 +1,8 @@
 <?php
 namespace AmbuShiftBundle\Entity;
 
+use \DateTime;
+
 class Shift
 {
     private $id;

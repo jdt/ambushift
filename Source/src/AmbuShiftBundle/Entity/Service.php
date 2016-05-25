@@ -1,6 +1,8 @@
 <?php
 namespace AmbuShiftBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Service
 {
     private $id;
@@ -13,9 +15,8 @@ class Service
     public function __construct($description)
     {
     	$this->description = $description;
-    	
+
         $this->shifts = new ArrayCollection();
-        $this->schedule = new ArrayCollection();
         $this->vehicles = new ArrayCollection();
     }
 

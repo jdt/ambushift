@@ -7,8 +7,9 @@ class ShiftWorker
 
     private $user;
     private $crewPosition;
+    private $vehicle;
 
-    public function __construct()
+    public function __construct(User $user, CrewPosition $position, Vehicle $vehicle)
     {
     }
 }

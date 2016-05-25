@@ -1,6 +1,8 @@
 <?php
 namespace AmbuShiftBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+
 class Schedule
 {
 	private $timeSlots;
