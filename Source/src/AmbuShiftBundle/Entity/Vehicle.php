@@ -8,6 +8,7 @@ class Vehicle
     private $id;
     private $description;
 
+    private $service;
     private $crewPositions;
 
     public function __construct($description)

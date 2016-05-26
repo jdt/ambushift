@@ -1,6 +1,7 @@
 <?php
 namespace AmbuShiftBundle\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use \DateTime;
 
 class Shift
@@ -17,5 +18,7 @@ class Shift
     {
     	$this->from = $from;
     	$this->to = $to;
+        
+        $this->shiftWorkers = new ArrayCollection();
     }
 }

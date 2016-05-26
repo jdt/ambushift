@@ -8,14 +8,15 @@ class Service
     private $id;
     private $description;
 
+    private $timeSlots;
     private $shifts;
-    private $schedule;
     private $vehicles;
 
     public function __construct($description)
     {
     	$this->description = $description;
 
+        $this->timeSlots = new ArrayCollection();
         $this->shifts = new ArrayCollection();
         $this->vehicles = new ArrayCollection();
     }
@@ -25,13 +26,13 @@ class Service
         return $this->shifts->toArray();
     }
 
-    public function getSchedule()
+    public function getTimeSlots()
     {
-    	return $this->schedule;
+    	return $this->timeSlots->toArray();
     }
 
     public function getVehicles()
     {
-    	return $this->vehicles;
+    	return $this->vehicles->toArray();
     }
 }

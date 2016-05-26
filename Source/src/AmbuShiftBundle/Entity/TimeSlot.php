@@ -10,6 +10,8 @@ class TimeSlot
     private $from;
     private $to;
 
+    private $service;
+
     public function __construct(DateTime $from, DateTime $to)
     {
     	$this->from = $from;
