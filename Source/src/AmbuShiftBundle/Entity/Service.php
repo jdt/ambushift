@@ -21,6 +21,34 @@ class Service
         $this->vehicles = new ArrayCollection();
     }
 
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+
+    public function operatesDuring(TimeSlot $timeSlot)
+    {
+        $timeSlot->setService($this);
+        $this->timeSlots->add($timeSlot);
+    }
+
+    public function runShift(Shift $shift)
+    {
+        $shift->setService($this);
+        $this->shifts->add($shift);
+    }
+
+    public function operate(Vehicle $vehicle)
+    {
+        $vehicle->setService($this);
+        $this->vehicles->add($vehicle);
+    }
+
     public function getShifts()
     {
         return $this->shifts->toArray();

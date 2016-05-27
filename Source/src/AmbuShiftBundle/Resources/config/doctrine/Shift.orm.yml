@@ -8,5 +8,26 @@ AmbuShiftBundle\Entity\Shift:
     fields:
         from:
             type: datetime
+            column: "`from`"
         to:
             type: datetime
+            column: "`to`"
+    oneToMany:
+        shiftWorkers:
+            targetEntity: AmbuShiftBundle\Entity\ShiftWorker
+            mappedBy: shiftWorker
+            orphanRemoval: true
+            cascade: ["persist", "remove"]    
+    manyToOne:
+        vehicle:
+            targetEntity: AmbuShiftBundle\Entity\Vehicle
+            inversedBy: vehicles
+            joinColumn:
+                name: vehicleId
+                referencedColumnName: id
+        service:
+            targetEntity: AmbuShiftBundle\Entity\Service
+            inversedBy: timeSlots
+            joinColumn:
+                name: serviceId
+                referencedColumnName: id

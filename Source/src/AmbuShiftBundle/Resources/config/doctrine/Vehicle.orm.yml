@@ -1,0 +1,24 @@
+AmbuShiftBundle\Entity\Vehicle:
+    type:  entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+            length: 50
+    oneToMany:
+        crewPositions:
+            targetEntity: AmbuShiftBundle\Entity\CrewPosition
+            mappedBy: vehicle
+            orphanRemoval: true
+            cascade: ["persist", "remove"]
+    manyToOne:
+        service:
+            targetEntity: AmbuShiftBundle\Entity\Service
+            inversedBy: service
+            joinColumn:
+                name: serviceId
+                referencedColumnName: id

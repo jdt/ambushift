@@ -12,6 +12,16 @@ AmbuShiftBundle\Entity\Service:
     oneToMany:
         shifts:
             targetEntity: AmbuShiftBundle\Entity\Shift
-            mappedBy: shift
+            mappedBy: service
+            orphanRemoval: true
+            cascade: ["persist", "remove"]
+        timeSlots:
+            targetEntity: AmbuShiftBundle\Entity\TimeSlot
+            mappedBy: service
+            orphanRemoval: true
+            cascade: ["persist", "remove"]
+        vehicles:
+            targetEntity: AmbuShiftBundle\Entity\Vehicle
+            mappedBy: service
             orphanRemoval: true
             cascade: ["persist", "remove"]

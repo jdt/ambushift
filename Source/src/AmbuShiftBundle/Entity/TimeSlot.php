@@ -1,7 +1,9 @@
 <?php
 namespace AmbuShiftBundle\Entity;
 
-use \DateTime;
+use AmbuShiftBundle\Entity\Time;
+use AmbuShiftBundle\Entity\Service;
+
 
 class TimeSlot
 {
@@ -12,9 +14,29 @@ class TimeSlot
 
     private $service;
 
-    public function __construct(DateTime $from, DateTime $to)
+    public function __construct(Time $from, Time $to)
     {
     	$this->from = $from;
     	$this->to = $to;
+    }
+
+    public function getId()
+    {
+        return $this->id;
+    }
+
+    public function getFrom()
+    {
+        return $this->from;
+    }
+
+    public function getTo()
+    {
+        return $this->to;
+    }
+
+    public function setService($service)
+    {
+    	$this->service = $service;
     }
 }

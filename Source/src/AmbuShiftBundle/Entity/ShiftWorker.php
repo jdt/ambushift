@@ -7,9 +7,25 @@ class ShiftWorker
 
     private $user;
     private $crewPosition;
-    private $vehicle;
 
-    public function __construct(User $user, CrewPosition $position, Vehicle $vehicle)
+    public function __construct(User $user, CrewPosition $crewPosition)
     {
+    	$this->user = $user;
+    	$this->crewPosition = $crewPosition;
+    }
+
+    public function getId()
+    {
+    	return $this->id;
+    }
+
+    public function getUser()
+    {
+    	return $this->user;
+    }
+
+    public function getCrewPosition()
+    {
+    	return $this->crewPosition;
     }
 }

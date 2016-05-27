@@ -1,0 +1,21 @@
+AmbuShiftBundle\Entity\TimeSlot:
+    type:  entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        from:
+            type: AmbuShiftTimeType
+            column: "`from`"
+        to:
+            type: AmbuShiftTimeType
+            column: "`to`"
+    manyToOne:
+        service:
+            targetEntity: AmbuShiftBundle\Entity\Service
+            inversedBy: timeSlots
+            joinColumn:
+                name: serviceId
+                referencedColumnName: id

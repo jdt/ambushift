@@ -1,0 +1,18 @@
+AmbuShiftBundle\Entity\CrewPosition:
+    type:  entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        description:
+            type: string
+            length: 50    
+    manyToOne:
+        vehicle:
+            targetEntity: AmbuShiftBundle\Entity\Vehicle
+            inversedBy: crewPositions
+            joinColumn:
+                name: vehicleId
+                referencedColumnName: id

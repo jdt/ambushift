@@ -1,0 +1,18 @@
+AmbuShiftBundle\Entity\ShiftWorker:
+    type:  entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    manyToOne:
+        user:
+            targetEntity: AmbuShiftBundle\Entity\User
+            joinColumn:
+                name: userId
+                referencedColumnName: id        
+        crewPosition:
+            targetEntity: AmbuShiftBundle\Entity\CrewPosition
+            joinColumn:
+                name: crewPositionId
+                referencedColumnName: id
