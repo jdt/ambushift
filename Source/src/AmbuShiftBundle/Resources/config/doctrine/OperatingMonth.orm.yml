@@ -1,0 +1,27 @@
+AmbuShiftBundle\Entity\OperatingMonth:
+    type:  entity
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    fields:
+        year:
+            type: string
+            length: 4
+        month:
+            type: string
+            length: 2
+    oneToMany:
+        shifts:
+            targetEntity: AmbuShiftBundle\Entity\Shift
+            mappedBy: operatingMonth
+            orphanRemoval: true
+            cascade: ["persist", "remove"]
+    manyToOne:
+        service:
+            targetEntity: AmbuShiftBundle\Entity\Service
+            inversedBy: service
+            joinColumn:
+                name: serviceId
+                referencedColumnName: id

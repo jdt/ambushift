@@ -9,7 +9,7 @@ class Service
     private $description;
 
     private $timeSlots;
-    private $shifts;
+    private $operatingMonths;
     private $vehicles;
 
     public function __construct($description)
@@ -17,7 +17,7 @@ class Service
     	$this->description = $description;
 
         $this->timeSlots = new ArrayCollection();
-        $this->shifts = new ArrayCollection();
+        $this->operatingMonths = new ArrayCollection();
         $this->vehicles = new ArrayCollection();
     }
 
@@ -37,10 +37,10 @@ class Service
         $this->timeSlots->add($timeSlot);
     }
 
-    public function runShift(Shift $shift)
+    public function operates(OperatingMonth $month)
     {
-        $shift->setService($this);
-        $this->shifts->add($shift);
+        $month->setService($this);
+        $this->operatingMonths->add($month);
     }
 
     public function operate(Vehicle $vehicle)
@@ -49,9 +49,9 @@ class Service
         $this->vehicles->add($vehicle);
     }
 
-    public function getShifts()
+    public function getOperatingMonths()
     {
-        return $this->shifts->toArray();
+        return $this->operatingMonths->toArray();
     }
 
     public function getTimeSlots()

@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use AmbuShiftBundle\Entity\Service;
 use AmbuShiftBundle\Entity\Time;
 use AmbuShiftBundle\Entity\TimeSlot;
-use AmbuShiftBundle\Entity\Shift;
+use AmbuShiftBundle\Entity\OperatingMonth;
 use AmbuShiftBundle\Entity\Vehicle;
 
 use \DateTime;
@@ -35,10 +35,10 @@ class ServiceMappingTest extends KernelTestCase
 
         $timeSlot = new TimeSlot(new Time(12, 0), new Time(18, 0));
         $vehicle = new Vehicle("Ambulance 1");
-        $shift = new Shift(new DateTime("2014-01-01 12:00:00"), new DateTime("2014-01-01 18:00:00"), $vehicle);
+        $month = new OperatingMonth(2016, 1);
 
         $service->operatesDuring($timeSlot);
-        $service->runShift($shift);
+        $service->operates($month);
         $service->operate($vehicle);
 
         $this->em->persist($service);
@@ -50,7 +50,7 @@ class ServiceMappingTest extends KernelTestCase
         $this->assertEquals($service->getDescription(), $dbItem->getDescription());
 
         $this->assertEquals(1, count($dbItem->getTimeSlots()));
-        $this->assertEquals(1, count($dbItem->getShifts()));
+        $this->assertEquals(1, count($dbItem->getOperatingMonths()));
         $this->assertEquals(1, count($dbItem->getVehicles()));
     
         $this->em->getConnection()->rollback();

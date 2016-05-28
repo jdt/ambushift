@@ -10,8 +10,8 @@ AmbuShiftBundle\Entity\Service:
             type: string
             length: 50
     oneToMany:
-        shifts:
-            targetEntity: AmbuShiftBundle\Entity\Shift
+        operatingMonths:
+            targetEntity: AmbuShiftBundle\Entity\OperatingMonth
             mappedBy: service
             orphanRemoval: true
             cascade: ["persist", "remove"]

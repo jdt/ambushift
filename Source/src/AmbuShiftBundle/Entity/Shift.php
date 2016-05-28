@@ -13,7 +13,7 @@ class Shift
     private $from;
     private $to;
 
-    private $service;
+    private $operatingMonth;
     private $shiftWorkers;
 
     private $vehicle;
@@ -42,9 +42,9 @@ class Shift
         return $this->to;
     }
 
-    public function setService($service)
+    public function setOperatingMonth(OperatingMonth $operatingMonth)
     {
-        $this->service = $service;
+        $this->operatingMonth = $operatingMonth;
     }
 
     public function getShiftWorkers()

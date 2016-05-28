@@ -25,9 +25,9 @@ AmbuShiftBundle\Entity\Shift:
             joinColumn:
                 name: vehicleId
                 referencedColumnName: id
-        service:
-            targetEntity: AmbuShiftBundle\Entity\Service
-            inversedBy: timeSlots
+        operatingMonth:
+            targetEntity: AmbuShiftBundle\Entity\OperatingMonth
+            inversedBy: operatingMonths
             joinColumn:
-                name: serviceId
+                name: operatingMonthId
                 referencedColumnName: id
