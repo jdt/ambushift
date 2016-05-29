@@ -52,3 +52,8 @@
 .register-card .forgot {
   text-align: center;
 }
+
+#content
+{
+  margin: 5px;
+}
