@@ -15,19 +15,19 @@ AmbuShiftBundle\Entity\Shift:
     oneToMany:
         shiftWorkers:
             targetEntity: AmbuShiftBundle\Entity\ShiftWorker
-            mappedBy: shiftWorker
+            mappedBy: shift
             orphanRemoval: true
             cascade: ["persist", "remove"]    
     manyToOne:
         vehicle:
             targetEntity: AmbuShiftBundle\Entity\Vehicle
-            inversedBy: vehicles
+            inversedBy: shifts
             joinColumn:
                 name: vehicleId
                 referencedColumnName: id
         operatingMonth:
             targetEntity: AmbuShiftBundle\Entity\OperatingMonth
-            inversedBy: operatingMonths
+            inversedBy: shifts
             joinColumn:
                 name: operatingMonthId
                 referencedColumnName: id

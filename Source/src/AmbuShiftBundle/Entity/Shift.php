@@ -4,6 +4,7 @@ namespace AmbuShiftBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use AmbuShiftBundle\Entity\Vehicle;
 use AmbuShiftBundle\Entity\ShiftWorker;
+
 use \DateTime;
 
 class Shift
@@ -13,9 +14,9 @@ class Shift
     private $from;
     private $to;
 
-    private $operatingMonth;
     private $shiftWorkers;
 
+    private $operatingMonth;
     private $vehicle;
 
     public function __construct(DateTime $from, DateTime $to, Vehicle $vehicle)
@@ -42,6 +43,11 @@ class Shift
         return $this->to;
     }
 
+    public function getVehicle()
+    {
+        return $this->vehicle;
+    }
+
     public function setOperatingMonth(OperatingMonth $operatingMonth)
     {
         $this->operatingMonth = $operatingMonth;
@@ -54,6 +60,7 @@ class Shift
 
     public function assign(ShiftWorker $shiftWorker)
     {
+        $shiftWorker->setShift($this);
         $this->shiftWorkers->add($shiftWorker);
     }
 }

@@ -8,7 +8,11 @@ AmbuShiftBundle\Entity\CrewPosition:
     fields:
         description:
             type: string
-            length: 50    
+            length: 50
+    oneToMany:
+        shiftWorkers:
+            targetEntity: AmbuShiftBundle\Entity\ShiftWorker
+            mappedBy: crewPosition
     manyToOne:
         vehicle:
             targetEntity: AmbuShiftBundle\Entity\Vehicle

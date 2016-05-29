@@ -5,3 +5,7 @@ AmbuShiftBundle\Entity\User:
             type: integer
             generator:
                 strategy: AUTO
+    oneToMany:
+        shiftWorkers:
+            targetEntity: AmbuShiftBundle\Entity\ShiftWorker
+            mappedBy: user

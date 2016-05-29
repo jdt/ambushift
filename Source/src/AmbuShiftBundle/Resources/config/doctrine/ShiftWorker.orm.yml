@@ -8,11 +8,19 @@ AmbuShiftBundle\Entity\ShiftWorker:
     manyToOne:
         user:
             targetEntity: AmbuShiftBundle\Entity\User
+            inversedBy: shiftWorkers
             joinColumn:
                 name: userId
-                referencedColumnName: id        
+                referencedColumnName: id
         crewPosition:
             targetEntity: AmbuShiftBundle\Entity\CrewPosition
+            inversedBy: shiftWorkers
             joinColumn:
                 name: crewPositionId
+                referencedColumnName: id
+        shift:
+            targetEntity: AmbuShiftBundle\Entity\Shift
+            inversedBy: shiftWorkers
+            joinColumn:
+                name: shiftId
                 referencedColumnName: id

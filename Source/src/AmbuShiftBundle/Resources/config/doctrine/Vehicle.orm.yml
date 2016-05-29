@@ -15,10 +15,13 @@ AmbuShiftBundle\Entity\Vehicle:
             mappedBy: vehicle
             orphanRemoval: true
             cascade: ["persist", "remove"]
+        shifts:
+            targetEntity: AmbuShiftBundle\Entity\Shift
+            mappedBy: vehicle
     manyToOne:
         service:
             targetEntity: AmbuShiftBundle\Entity\Service
-            inversedBy: service
+            inversedBy: vehicles
             joinColumn:
                 name: serviceId
                 referencedColumnName: id

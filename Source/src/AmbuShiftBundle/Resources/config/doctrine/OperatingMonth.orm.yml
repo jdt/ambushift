@@ -21,7 +21,7 @@ AmbuShiftBundle\Entity\OperatingMonth:
     manyToOne:
         service:
             targetEntity: AmbuShiftBundle\Entity\Service
-            inversedBy: service
+            inversedBy: operatingMonths
             joinColumn:
                 name: serviceId
                 referencedColumnName: id

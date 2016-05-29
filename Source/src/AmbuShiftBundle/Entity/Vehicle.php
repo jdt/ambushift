@@ -10,12 +10,14 @@ class Vehicle
 
     private $crewPositions;
 
+    private $shifts;
     private $service;
 
     public function __construct($description)
     {
     	$this->description = $description;
         $this->crewPositions = new ArrayCollection();
+        $this->shifts = new ArrayCollection();
     }
 
     public function getId()
