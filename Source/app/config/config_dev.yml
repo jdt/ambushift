@@ -32,3 +32,6 @@ monolog:
 
 #swiftmailer:
 #    delivery_address: me@example.com
+
+parameters:
+    ambushift_calendar_date: "2016-05-01 10:00:00"
