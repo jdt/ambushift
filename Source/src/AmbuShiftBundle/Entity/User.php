@@ -8,6 +8,8 @@ class User extends BaseUser
 {
     protected $id;
 
+    private $name;
+
     private $shiftWorkers;
 
     public function __construct()
@@ -15,5 +17,10 @@ class User extends BaseUser
         parent::__construct();
 
         $this->shiftWorkers = new ArrayCollection();
+    }
+
+    public function getName()
+    {
+    	return $this->name;
     }
 }
