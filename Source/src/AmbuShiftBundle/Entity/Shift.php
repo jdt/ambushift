@@ -4,6 +4,7 @@ namespace AmbuShiftBundle\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use AmbuShiftBundle\Entity\Vehicle;
 use AmbuShiftBundle\Entity\ShiftWorker;
+use Underscore\Types\Arrays;
 
 use \DateTime;
 
@@ -62,5 +63,13 @@ class Shift
     {
         $shiftWorker->setShift($this);
         $this->shiftWorkers->add($shiftWorker);
+    }
+    
+    public function getShiftWorkerFor(CrewPosition $position)
+    {
+        $worker = Arrays::find($this->getShiftWorkers(), function($w) use ($position) { return $w->getCrewPosition()->getId() == $position->getId(); });
+        if ($worker == false)
+            return null;
+        return $worker;
     }
 }
