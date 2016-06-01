@@ -52,7 +52,7 @@ class ShiftMappingTest extends KernelTestCase
 
         $this->assertEquals($shift->getFrom(), $dbItem->getFrom());
         $this->assertEquals($shift->getTo(), $dbItem->getTo());
-        $this->assertEquals(1, count($shift->getShiftWorkers()));
+        $this->assertEquals(1, count($dbItem->getShiftWorkers()));
 
         $this->em->getConnection()->rollback();
     }
