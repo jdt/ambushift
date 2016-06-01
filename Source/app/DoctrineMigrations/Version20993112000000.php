@@ -28,7 +28,22 @@ class Version20993112000000 extends AbstractMigration implements ContainerAwareI
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('INSERT INTO ambushift_user(id, username_canonical, email, email_canonical, enabled, salt, password, roles) VALUES (1, "amb", "amb@local.host", "amb@local.host", 1, "e8kkc0eca8g8c8g8cgocg4swos8scwc", "$2y$13$j.GxOeRdxFtJ.woyoNd49eX1/oGZPrNTldXWkH.0mcH2RqXnlD7/2", "a:0:{}")');
+        $this->addSql('INSERT INTO ambushift_user(id, username_canonical, email, email_canonical, enabled, salt, password, roles, name) VALUES (1, "amb", "amb@local.host", "amb@local.host", 1, "e8kkc0eca8g8c8g8cgocg4swos8scwc", "$2y$13$j.GxOeRdxFtJ.woyoNd49eX1/oGZPrNTldXWkH.0mcH2RqXnlD7/2", "a:0:{}", "Ambulance Admin");');
+        $this->addSql('INSERT INTO ambushift_user(id, username_canonical, email, email_canonical, enabled, salt, password, roles, name) VALUES (2, "driver", "driver@local.host", "driver@local.host", 1, "", "", "a:0:{}", "Ambulance Driver");');
+
+        $this->addSql('INSERT INTO ambushift_service(id, description) VALUES (1, "AmbulanceService");');
+
+        $this->addSql('INSERT INTO ambushift_vehicle(id, description, serviceId) VALUES (1, "Ambulance 1", 1);');
+
+        $this->addSql('INSERT INTO ambushift_crew_position(id, description, vehicleId) VALUES (1, "Driver", 1);');
+        $this->addSql('INSERT INTO ambushift_crew_position(id, description, vehicleId) VALUES (2, "Attendant", 1);');
+        $this->addSql('INSERT INTO ambushift_crew_position(id, description, vehicleId) VALUES (3, "Trainee", 1);');
+
+        $this->addSql('INSERT INTO ambushift_operating_month(id, year, month, serviceId) VALUES (1, 2016, 5, 1);');
+
+        $this->addSql('INSERT INTO ambushift_shift(id, `from`, `to`, vehicleId, operatingMonthId) VALUES (1, "2016-05-01 18:00:00", "2016-05-02 06:00:00", 1, 1);');
+
+        $this->addSql('INSERT INTO ambushift_shift_worker(id, userId, crewPositionId, shiftId) VALUES (1, 2, 1, 1);');
     }
 
     /**
