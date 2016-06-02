@@ -12,6 +12,19 @@ services:
     class: AmbuShiftBundle\Controller\HomeController
     arguments: ["@util.responsebuilder"]
 
+  controller.shift:
+    class: AmbuShiftBundle\Controller\ShiftController
+    arguments: ["@util.responsebuilder", "@repository.operatingMonth", "@service.calendar"]
+
+  repository.operatingMonth:
+    class: AmbuShiftBundle\Repository\OperatingMonthRepository        
+    arguments:
+      ["@doctrine.orm.entity_manager"]
+
   util.responsebuilder:
     class: AmbuShiftBundle\Util\ResponseBuilder
     arguments: ["@templating"]
+
+  service.calendar:
+    class: AmbuShiftBundle\Service\Calendar
+    arguments: ["%ambushift_calendar_date%"]
