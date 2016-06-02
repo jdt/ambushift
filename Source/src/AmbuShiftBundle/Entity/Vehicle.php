@@ -2,6 +2,7 @@
 namespace AmbuShiftBundle\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
+use Underscore\Types\Arrays;
 
 class Vehicle
 {
@@ -39,6 +40,14 @@ class Vehicle
     {
         $position->setVehicle($this);
         $this->crewPositions->add($position);
+    }
+
+    public function hasPosition(CrewPosition $position)
+    {
+        $position = Arrays::find($this->getCrewPositions(), function($p) use ($position) { return $p->getId() == $position->getId(); });
+        if ($position == false)
+            return false;
+        return true;
     }
 
     public function setService($service)
