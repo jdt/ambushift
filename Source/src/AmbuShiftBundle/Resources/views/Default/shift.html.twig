@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <h3>{{ 'nav.shifts'|trans }}</h3>
+    <table width="100%">
+    	<tbody>
+		{% for shift in view.shifts %}
+			<tr>
+				<td width="80px">{{ shift.dayIndex|trans }}</td>
+				<td width="375px">{{ shift.from }} - {{ shift.to }}</td>
+				<td>{{ shift.vehicle }}</td>
+				{% for crewPosition in shift.crewPositions %}
+					<td>
+							<b>
+								{{ crewPosition.description }}:
+							</b> 
+							{% if crewPosition.hasShiftWorker %}
+								{{ crewPosition.shiftWorkerName }}
+							{% else %}
+								<i>{{ 'shift.notFilledIn'|trans }}</i>
+							{% endif %}
+					</td>
+				{% endfor %}
+			</tr>
+		{% endfor %}
+		</tbody>
+    </table>
+{% endblock %}
