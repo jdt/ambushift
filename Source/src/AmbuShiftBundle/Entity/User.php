@@ -23,4 +23,9 @@ class User extends BaseUser
     {
     	return $this->name;
     }
+
+    public function setName($name)
+    {
+        $this->name = $name;
+    }
 }
