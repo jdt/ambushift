@@ -2,12 +2,12 @@
 
 {% block body %}
     <h3>{{ 'nav.shifts'|trans }}</h3>
-    <table width="100%">
+    <table id="shiftOverview" class="table table-striped table-hover">
     	<tbody>
 		{% for shift in view.shifts %}
 			<tr>
-				<td width="80px">{{ shift.dayIndex|trans }}</td>
-				<td width="375px">{{ shift.from }} - {{ shift.to }}</td>
+				<td>{{ shift.dayIndex|trans }}</td>
+				<td>{{ shift.from }} - {{ shift.to }}</td>
 				<td>{{ shift.vehicle }}</td>
 				{% for crewPosition in shift.crewPositions %}
 					<td>
@@ -17,7 +17,7 @@
 							{% if crewPosition.hasShiftWorker %}
 								{{ crewPosition.shiftWorkerName }}
 							{% else %}
-								<i>{{ 'shift.notFilledIn'|trans }}</i>
+								<a href="#">{{ 'shift.notFilledIn'|trans }}</a>
 							{% endif %}
 					</td>
 				{% endfor %}

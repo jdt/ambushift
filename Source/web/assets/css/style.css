@@ -55,5 +55,16 @@
 
 #content
 {
-  margin: 5px;
+  padding: 0px 15px 0px 15px;
+}
+
+#shiftOverview
+{
+  width: 100%;
+  border: 1px solid #DDDDDD;
+}
+
+#shiftOverview td
+{
+  padding: 4px;
 }
