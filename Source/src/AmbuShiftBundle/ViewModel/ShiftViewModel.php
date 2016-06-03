@@ -65,7 +65,7 @@ class ShiftViewModel
             [
                 "dayIndex"          => $shift->getFrom()->format("N"),
                 "from"              => $shift->getFrom()->format(self::DATETIMEFORMAT),
-                "to"                => $shift->getTo()->format(self::DATETIMEFORMAT),
+                "to"                => $shift->getTo()->format("H:i:s"),
                 "vehicle"           => $shift->getVehicle()->getDescription(),
                 "crewPositions"     => $crewPositions
             ];

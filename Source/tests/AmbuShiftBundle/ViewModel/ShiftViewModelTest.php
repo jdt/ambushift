@@ -58,7 +58,7 @@ class ShiftViewModelTest extends PHPUnit_Framework_TestCase
             [
                 "dayIndex"      => "3",
                 "from"          => "01-06-2016 12:00:00",
-                "to"            => "01-06-2016 18:00:00",
+                "to"            => "18:00:00",
                 "vehicle"       => "Test 1",
                 "crewPositions" =>
                 [
