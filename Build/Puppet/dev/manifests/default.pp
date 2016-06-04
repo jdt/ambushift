@@ -62,6 +62,10 @@ exec { 'install bower':
   command => "npm install -g bower"
 }
 
+exec { 'install grunt':
+  command => "npm install -g grunt-cli"
+}
+
 exec { 'composer install':
   command => "/usr/local/bin/composer install",
   cwd => "/vagrant/Source",
