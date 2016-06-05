@@ -58,12 +58,12 @@ exec { 'install NPDM':
   command => "apt-get install -y nodejs"
 }
 
-exec { 'install bower':
-  command => "npm install -g bower"
+exec { 'install grunt':
+  command => "npm install -g gulp-cli"
 }
 
-exec { 'install grunt':
-  command => "npm install -g grunt-cli"
+exec { 'install webpack':
+  command => "npm install -g webpack"
 }
 
 exec { 'composer install':
