@@ -1,0 +1,12 @@
+{
+  "name": "ambushift",
+  "version": "0.1.0",
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-copy": "0.0.2",
+    "gulp-csso": "^2.0.0",
+    "merge-stream": "^1.0.0",
+    "webpack-stream": "^3.2.0"
+  }
+}
