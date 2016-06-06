@@ -28,8 +28,8 @@ class Version20993112000000 extends AbstractMigration implements ContainerAwareI
         // this up() migration is auto-generated, please modify it to your needs
         $this->abortIf($this->connection->getDatabasePlatform()->getName() != 'mysql', 'Migration can only be executed safely on \'mysql\'.');
 
-        $this->addSql('INSERT INTO ambushift_user(id, username_canonical, email, email_canonical, enabled, salt, password, roles, name) VALUES (1, "amb", "amb@local.host", "amb@local.host", 1, "e8kkc0eca8g8c8g8cgocg4swos8scwc", "$2y$13$j.GxOeRdxFtJ.woyoNd49eX1/oGZPrNTldXWkH.0mcH2RqXnlD7/2", "a:0:{}", "Ambulance Admin");');
-        $this->addSql('INSERT INTO ambushift_user(id, username_canonical, email, email_canonical, enabled, salt, password, roles, name) VALUES (2, "driver", "driver@local.host", "driver@local.host", 1, "", "", "a:0:{}", "Ambulance Driver");');
+        $this->addSql('INSERT INTO ambushift_user(id, username, username_canonical, email, email_canonical, enabled, salt, password, roles, name) VALUES (1, "amb", "amb", "amb@local.host", "amb@local.host", 1, "e8kkc0eca8g8c8g8cgocg4swos8scwc", "$2y$13$j.GxOeRdxFtJ.woyoNd49eX1/oGZPrNTldXWkH.0mcH2RqXnlD7/2", "a:0:{}", "Ambulance Admin");');
+        $this->addSql('INSERT INTO ambushift_user(id, username, username_canonical, email, email_canonical, enabled, salt, password, roles, name) VALUES (2, "driver", "driver", "driver@local.host", "driver@local.host", 1, "", "", "a:0:{}", "Ambulance Driver");');
 
         $this->addSql('INSERT INTO ambushift_service(id, description) VALUES (1, "AmbulanceService");');
 
