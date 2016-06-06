@@ -1,3 +1,5 @@
 /ambushift.sublime-workspace
 /.vagrant
 /Source/web/assets/vendor
+/Source/web/assets/dist
+/Source/web/assets/build
