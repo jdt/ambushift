@@ -10,18 +10,9 @@
         <meta content='width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0' name='viewport' />
         <meta name="viewport" content="width=device-width" />
         
-        <link rel="stylesheet" href="{{ asset('assets/vendor/bootstrap/dist/css/bootstrap.min.css') }}">
+        <link href="{{ asset('assets/dist/bundle.css') }}" rel="stylesheet" />
 
-        <link href="{{ asset('assets/paper-kit/css/ct-paper.css') }}" rel="stylesheet"/>
-        <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet" />
-
-        <link rel="stylesheet" href="{{ asset('assets/vendor/jquery-ui/themes/base/jquery-ui.min.css') }}">
-        
         <link rel="icon" type="image/x-icon" href="{{ asset('favicon.ico') }}" />
-
-        <link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-        <link href='http://fonts.googleapis.com/css?family=Montserrat' rel='stylesheet' type='text/css'>
-        <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300' rel='stylesheet' type='text/css'>
     </head>
     <body>
             {% block fos_user_content %}
@@ -35,13 +26,5 @@
             {% endfor %}
     </body>
 
-    <script src="{{ asset('assets/vendor/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/vendor/jquery-ui/jquery-ui.min.js') }}" type="text/javascript"></script>
-    <script src="{{ asset('assets/vendor/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
-
-    <script src="{{ asset('assets/paper-kit/js/ct-paper-checkbox.js') }}"></script>
-    <script src="{{ asset('assets/paper-kit/js/ct-paper-radio.js') }}"></script>
-    <script src="{{ asset('assets/paper-kit/js/bootstrap-select.js') }}"></script>
-    <script src="{{ asset('assets/paper-kit/js/bootstrap-datepicker.js') }}"></script>
-    <script src="{{ asset('assets/paper-kit/js/ct-paper.js') }}"></script>
+    <script src="{{ asset('assets/dist/bundle.js') }}" type="text/javascript"></script>
 </html>
