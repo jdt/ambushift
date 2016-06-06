@@ -26,3 +26,6 @@ gulp.task('bundleJs', function() {
 	  .pipe(webpack(require('./webpack.config.js') ))
 	  .pipe(gulp.dest('./web/assets/dist'));
 });
+
+gulp.watch('web/assets/js/*.js', ['bundleJs']);
+gulp.watch('web/assets/css/*.css', ['bundleCss']);
