@@ -1,2 +1,7 @@
 require("bootstrap");
-require("./shifts.js");
+var Shifts = require("./shifts.js");
+
+module.exports = 
+{
+	ShiftOverView: Shifts
+};

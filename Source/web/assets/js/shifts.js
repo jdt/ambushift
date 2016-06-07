@@ -1,6 +1,11 @@
-require("jquery");
+var $ = require("jquery");
 
-define("shifts", ["jquery"], function($)
+var Shifts = 
 {
-	
-});
+	initialize: function(tableSelector)
+	{
+
+	}
+};
+
+module.exports = Shifts;
