@@ -7,8 +7,14 @@ nav:
     shifts: Shifts
     logout: Afmelden
 
+dialog:
+    cancel: Annuleren
+    confirm: Bevestigen
+
 shift:
   notFilledIn: Nog niet ingevuld
+  enrollInShift: Inschrijven voor shift
+  confirmEnrollment: Inschrijven voor de shift op %(date)s als %(crewPosition)s?
 
 1: Maandag
 2: Dinsdag

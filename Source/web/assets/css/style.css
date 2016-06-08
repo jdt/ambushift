@@ -58,13 +58,8 @@
   padding: 0px 15px 0px 15px;
 }
 
-#shiftOverview
+#shiftOverview > table
 {
   width: 100%;
   border: 1px solid #DDDDDD;
-}
-
-#shiftOverview td
-{
-  padding: 4px;
 }
