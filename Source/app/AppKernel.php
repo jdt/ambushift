@@ -17,7 +17,8 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new AmbuShiftBundle\AmbuShiftBundle(),
             new FOS\UserBundle\FOSUserBundle(),
-            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle()
+            new Doctrine\Bundle\MigrationsBundle\DoctrineMigrationsBundle(),
+            new FOS\JsRoutingBundle\FOSJsRoutingBundle()
         ];
 
         if (in_array($this->getEnvironment(), ['dev', 'test'], true)) {

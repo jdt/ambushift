@@ -5,3 +5,10 @@ home:
 shift:
     path: /shift
     defaults: { _controller: controller.shift:indexAction }
+
+shiftEnrollment:
+    path:     /shifts/{shiftId}/crewPositions/{crewPositionId}/enroll
+    defaults: { _controller: controller.shift:enrollAction }
+    methods:  [POST]
+    options:
+      expose: true
