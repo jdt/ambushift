@@ -41,6 +41,7 @@ class ShiftViewModelTest extends PHPUnit_Framework_TestCase
         $vehicle->has($position2);
 
     	$shift = new Shift(new DateTime("2016-06-01 12:00:00"), new DateTime("2016-06-01 18:00:00"), $vehicle);
+        $shift->setId(42);
         $shift->assign($worker1);
         $shift->assign($worker2);
 
@@ -56,6 +57,7 @@ class ShiftViewModelTest extends PHPUnit_Framework_TestCase
         $expected =
         [
             [
+                "shiftId"       => 42,
                 "dayIndex"      => "3",
                 "from"          => "01-06-2016 12:00:00",
                 "to"            => "18:00:00",
@@ -63,17 +65,20 @@ class ShiftViewModelTest extends PHPUnit_Framework_TestCase
                 "crewPositions" =>
                 [
                     [
-                        "hasShiftWorker"    => true,
+                        "crewPositionId"    => 1,
                         "description"       => "Position 1",
+                        "hasShiftWorker"    => true,
                         "shiftWorkerName"   => "User 1"
                     ],
                     [
-                        "hasShiftWorker"    => false,
-                        "description"       => "Position 2"
+                        "crewPositionId"    => 2,
+                        "description"       => "Position 2",
+                        "hasShiftWorker"    => false
                     ],
                     [
-                        "hasShiftWorker"    => true,
+                        "crewPositionId"    => 3,
                         "description"       => "Old Position",
+                        "hasShiftWorker"    => true,
                         "shiftWorkerName"   => "User 2"
                     ]
                 ]

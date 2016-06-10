@@ -26,22 +26,20 @@ class ShiftViewModel
             foreach($shift->getVehicle()->getCrewPositions() as $position)
             {
                 $shiftWorker = $shift->getShiftWorkerFor($position);
+                $crewPosition =
+                [
+                    "crewPositionId"    => $position->getId(),
+                    "description"       => $position->getDescription()
+                ];
+
                 if($shiftWorker != null)
                 {
-                    $crewPosition =
-                    [
-                        "hasShiftWorker" => true,
-                        "description"    => $position->getDescription(),
-                        "shiftWorkerName"    => $shiftWorker->getUser()->getName()
-                    ];
+                    $crewPosition["hasShiftWorker"] = true;
+                    $crewPosition["shiftWorkerName"] = $shiftWorker->getUser()->getName();
                 }
                 else
                 {
-                    $crewPosition =
-                    [
-                        "hasShiftWorker" => false,
-                        "description"    => $position->getDescription()
-                    ];    
+                    $crewPosition["hasShiftWorker"] = false;
                 }
 
                 $crewPositions[] = $crewPosition;
@@ -53,9 +51,10 @@ class ShiftViewModel
                 {
                     $crewPosition =
                     [
-                        "hasShiftWorker" => true,
-                        "description"    => $shiftWorker->getCrewPosition()->getDescription(),
-                        "shiftWorkerName"    => $shiftWorker->getUser()->getName()
+                        "crewPositionId"    => $shiftWorker->getCrewPosition()->getId(),
+                        "hasShiftWorker"    => true,
+                        "description"       => $shiftWorker->getCrewPosition()->getDescription(),
+                        "shiftWorkerName"   => $shiftWorker->getUser()->getName()
                     ];
                     $crewPositions[] = $crewPosition;
                 }
@@ -63,6 +62,7 @@ class ShiftViewModel
 
             $shifts[] = 
             [
+                "shiftId"           => $shift->getId(),
                 "dayIndex"          => $shift->getFrom()->format("N"),
                 "from"              => $shift->getFrom()->format(self::DATETIMEFORMAT),
                 "to"                => $shift->getTo()->format("H:i:s"),
