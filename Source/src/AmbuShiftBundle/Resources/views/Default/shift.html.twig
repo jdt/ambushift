@@ -18,7 +18,7 @@
 								{% if crewPosition.hasShiftWorker %}
 									{{ crewPosition.shiftWorkerName }}
 								{% else %}
-									<a href="#" data-toggle="modal" data-type="enrollButton" data-crewposition="{{ crewPosition.description }}" data-date="{{ shift.dayIndex|trans }} {{ shift.from }} - {{ shift.to }}">{{ 'shift.notFilledIn'|trans }}</a>
+									<a href="#" data-toggle="modal" data-type="enrollButton" data-crewposition="{{ crewPosition.description }}" data-date="{{ shift.dayIndex|trans }} {{ shift.from }} - {{ shift.to }}" data-shiftid="{{ shift.shiftId }}" data-crewpositionid="{{ crewPosition.crewPositionId }}">{{ 'shift.notFilledIn'|trans }}</a>
 								{% endif %}
 						</td>
 					{% endfor %}
@@ -30,17 +30,19 @@
 		<div class="modal" id="shiftEnrollment" tabindex="-1" role="dialog" aria-labelledby="shiftEnrollmentTitle">
 		  <div class="modal-dialog" role="document">
 		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="shiftEnrollmentTitle">{{ 'shift.enrollInShift'|trans }}</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<span data-type="shiftEnrollmentMessage"></span>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-primary">{{ 'dialog.confirm'|trans }}</button>
-		        <button type="button" class="btn btn-default" data-dismiss="modal">{{ 'dialog.cancel'|trans }}</button>
-		      </div>
+		    	<div class="modal-header">
+		        	<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+		        	<h4 class="modal-title" id="shiftEnrollmentTitle">{{ 'shift.enrollInShift'|trans }}</h4>
+		      	</div>
+		      	<form method="post">
+			      	<div class="modal-body">
+						<span data-type="shiftEnrollmentMessage"></span>
+			      	</div>
+				    <div class="modal-footer">
+				       	<button type="submit" class="btn btn-primary">{{ 'dialog.confirm'|trans }}</button>
+				       	<button type="button" class="btn btn-default" data-dismiss="modal">{{ 'dialog.cancel'|trans }}</button>
+				  	</div>
+				</form>
 		    </div>
 		  </div>
 		</div>
