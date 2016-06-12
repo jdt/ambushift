@@ -39,7 +39,7 @@ class ShiftEnrollmentControllerTest extends PHPUnit_Framework_TestCase
         $shift->expects($this->once())->method("enroll")->with($this->equalTo($user), $this->equalTo($crewPositionId));
         $this->shiftRepository->expects($this->once())->method('save')->with($this->equalTo($shift));
 
-        $this->responseBuilder->expects($this->once())->method("asRedirect")->with($this->equalTo("shift"), $this->equalTo(array()))->will($this->returnValue("FOO"));
+        $this->responseBuilder->expects($this->once())->method("asRedirect")->with($this->equalTo("shifts"), $this->equalTo(array()))->will($this->returnValue("FOO"));
 
         $result = $this->controller->enrollAction($shiftId, $crewPositionId);
         $this->assertEquals("FOO", $result);
