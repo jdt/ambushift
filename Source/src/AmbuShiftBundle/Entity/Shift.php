@@ -63,12 +63,6 @@ class Shift
     {
         return $this->shiftWorkers->toArray();
     }
-
-    public function assign(ShiftWorker $shiftWorker)
-    {
-        $shiftWorker->setShift($this);
-        $this->shiftWorkers->add($shiftWorker);
-    }
     
     public function getShiftWorkerFor(CrewPosition $position)
     {
@@ -76,5 +70,14 @@ class Shift
         if ($worker == false)
             return null;
         return $worker;
+    }
+
+    public function enroll(User $user, $crewPositionId)
+    {
+        $crewPosition = Arrays::find($this->getVehicle()->getCrewPositions(), function($cp) use ($crewPositionId) { return $cp->getId() == $crewPositionId; });
+        $shiftWorker = new ShiftWorker($user, $crewPosition);
+        
+        $shiftWorker->setShift($this);
+        $this->shiftWorkers->add($shiftWorker);
     }
 }

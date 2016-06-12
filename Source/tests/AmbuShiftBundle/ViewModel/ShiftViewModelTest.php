@@ -3,7 +3,6 @@ namespace Tests\AmbuShiftBundle\Entity;
 
 use AmbuShiftBundle\Entity\Shift;
 use AmbuShiftBundle\Entity\Vehicle;
-use AmbuShiftBundle\Entity\ShiftWorker;
 use AmbuShiftBundle\Entity\CrewPosition;
 use AmbuShiftBundle\Entity\User;
 use AmbuShiftBundle\Entity\OperatingMonth;
@@ -33,17 +32,17 @@ class ShiftViewModelTest extends PHPUnit_Framework_TestCase
         $user2 = new User();
         $user2->setName("User 2");
     	
-        $worker1 = new ShiftWorker($user1, $position1);
-    	$worker2 = new ShiftWorker($user2, $position3);
-
     	$vehicle = new Vehicle("Test 1");
         $vehicle->has($position1);
         $vehicle->has($position2);
+        $vehicle->has($position3);
 
     	$shift = new Shift(new DateTime("2016-06-01 12:00:00"), new DateTime("2016-06-01 18:00:00"), $vehicle);
         $shift->setId(42);
-        $shift->assign($worker1);
-        $shift->assign($worker2);
+        $shift->enroll($user1, $position1->getId());
+        $shift->enroll($user2, $position3->getId());
+
+        $vehicle->remove($position3);
 
         $this->month = new OperatingMonth(2016, 6);
         $this->month->addShift($shift);

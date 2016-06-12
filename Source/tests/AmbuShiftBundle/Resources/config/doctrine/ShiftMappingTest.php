@@ -6,7 +6,6 @@ use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 use AmbuShiftBundle\Entity\Shift;
 use AmbuShiftBundle\Entity\Vehicle;
 use AmbuShiftBundle\Entity\User;
-use AmbuShiftBundle\Entity\ShiftWorker;
 use AmbuShiftBundle\Entity\CrewPosition;
 
 use \DateTime;
@@ -31,9 +30,11 @@ class ShiftMappingTest extends KernelTestCase
     {
         $this->em->getConnection()->beginTransaction();
 
-        $vehicle = new Vehicle("Ambulance 1");
         $position = new CrewPosition("Driver");
-        
+
+        $vehicle = new Vehicle("Ambulance 1");
+        $vehicle->has($position);
+
         $user = $this->em->find("AmbuShiftBundle\Entity\User", 1);
 
         $this->em->persist($vehicle);
@@ -41,8 +42,7 @@ class ShiftMappingTest extends KernelTestCase
 
         $shift = new Shift(new DateTime("2016-05-27 12:00:00"), new DateTime("2016-05-27 18:00:00"), $vehicle);
 
-        $worker = new ShiftWorker($user, $position);
-        $shift->assign($worker);
+        $shift->enroll($user, $position->getId());
 
         $this->em->persist($shift);
         $this->em->flush();

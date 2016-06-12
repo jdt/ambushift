@@ -42,6 +42,11 @@ class Vehicle
         $this->crewPositions->add($position);
     }
 
+    public function remove(CrewPosition $position)
+    {
+        $this->crewPositions->removeElement($position);
+    }
+
     public function hasPosition(CrewPosition $position)
     {
         $position = Arrays::find($this->getCrewPositions(), function($p) use ($position) { return $p->getId() == $position->getId(); });
