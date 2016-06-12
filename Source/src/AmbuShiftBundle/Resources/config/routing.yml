@@ -8,7 +8,7 @@ shift:
 
 shiftEnrollment:
     path:     /shifts/{shiftId}/crewPositions/{crewPositionId}/enroll
-    defaults: { _controller: controller.shift:enrollAction }
+    defaults: { _controller: controller.shiftEnrollment:enrollAction }
     methods:  [POST]
     options:
       expose: true

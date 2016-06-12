@@ -16,14 +16,27 @@ services:
     class: AmbuShiftBundle\Controller\ShiftController
     arguments: ["@util.responsebuilder", "@repository.operatingMonth", "@service.calendar"]
 
+  controller.shiftEnrollment:
+    class: AmbuShiftBundle\Controller\ShiftEnrollmentController
+    arguments: ["@util.responsebuilder", "@repository.shift", "@util.userProvider"]
+
   repository.operatingMonth:
     class: AmbuShiftBundle\Repository\OperatingMonthRepository        
     arguments:
       ["@doctrine.orm.entity_manager"]
 
+  repository.shift:
+    class: AmbuShiftBundle\Repository\ShiftRepository        
+    arguments:
+      ["@doctrine.orm.entity_manager"]
+
   util.responsebuilder:
     class: AmbuShiftBundle\Util\ResponseBuilder
-    arguments: ["@templating"]
+    arguments: ["@templating", "@router"]
+
+  util.userProvider:
+    class: AmbuShiftBundle\Util\UserProvider
+    arguments: ["@security.token_storage"]
 
   service.calendar:
     class: AmbuShiftBundle\Service\Calendar
