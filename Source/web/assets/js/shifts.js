@@ -1,5 +1,6 @@
 var $ = require("jquery");
 var sprintf = require("sprintf");
+var router = require("./router");
 
 var Shifts = 
 {
@@ -10,8 +11,9 @@ var Shifts =
 
 	initialize: function(componentSelector)
 	{
-		table = $(componentSelector + " table");
-		popup = $(componentSelector + " div:first");
+		var table = $(componentSelector + " table");
+		var popup = $(componentSelector + " div:first");
+		var form = $(componentSelector + " form:first");
 
 		var self = this;
 		table.find("a[data-type='enrollButton']").on("click", function(event) {
@@ -19,6 +21,7 @@ var Shifts =
 			var message = sprintf(self.Messages.ConfirmEnrollment, {date: button.data("date").toLowerCase(), crewPosition: button.data("crewposition")});
 			$(componentSelector).find("span[data-type='shiftEnrollmentMessage']").text(message);
 			
+			form.attr("action", router.generate("shiftEnrollment", {"crewPositionId": button.data("crewpositionid"), "shiftId": button.data("shiftid")}));
 			popup.modal("show");
 		});
 	}
