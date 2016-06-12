@@ -24,6 +24,6 @@ class ShiftEnrollmentController
         $shift->enroll($this->userProvider->getCurrentUser(), $crewPositionId);
         $this->shiftRepository->save($shift);
 
-        return $this->responseBuilder->asRedirect("shift", array());
+        return $this->responseBuilder->asRedirect("shifts", array());
     }
 }

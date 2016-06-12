@@ -2,8 +2,8 @@ home:
     path:     /
     defaults: { _controller: controller.home:indexAction }
 
-shift:
-    path: /shift
+shifts:
+    path: /shifts
     defaults: { _controller: controller.shift:indexAction }
 
 shiftEnrollment:
