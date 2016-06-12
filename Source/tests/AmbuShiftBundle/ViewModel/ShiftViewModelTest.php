@@ -48,37 +48,42 @@ class ShiftViewModelTest extends PHPUnit_Framework_TestCase
         $this->month->addShift($shift);
     }
 
-    public function testShiftsShouldSerializeMonth()
+    public function testMonthsShouldSerializeMonth()
     {
         $viewModel = new ShiftViewModel($this->month);
-        $actual = $viewModel->shifts();
+        $actual = $viewModel->month();
         
         $expected =
         [
+            "monthIndex"    => 6,
+            "year"          => 2016,
+            "shifts"        =>
             [
-                "shiftId"       => 42,
-                "dayIndex"      => "3",
-                "from"          => "01-06-2016 12:00:00",
-                "to"            => "18:00:00",
-                "vehicle"       => "Test 1",
-                "crewPositions" =>
                 [
+                    "shiftId"       => 42,
+                    "dayIndex"      => "3",
+                    "from"          => "01-06-2016 12:00:00",
+                    "to"            => "18:00:00",
+                    "vehicle"       => "Test 1",
+                    "crewPositions" =>
                     [
-                        "crewPositionId"    => 1,
-                        "description"       => "Position 1",
-                        "hasShiftWorker"    => true,
-                        "shiftWorkerName"   => "User 1"
-                    ],
-                    [
-                        "crewPositionId"    => 2,
-                        "description"       => "Position 2",
-                        "hasShiftWorker"    => false
-                    ],
-                    [
-                        "crewPositionId"    => 3,
-                        "description"       => "Old Position",
-                        "hasShiftWorker"    => true,
-                        "shiftWorkerName"   => "User 2"
+                        [
+                            "crewPositionId"    => 1,
+                            "description"       => "Position 1",
+                            "hasShiftWorker"    => true,
+                            "shiftWorkerName"   => "User 1"
+                        ],
+                        [
+                            "crewPositionId"    => 2,
+                            "description"       => "Position 2",
+                            "hasShiftWorker"    => false
+                        ],
+                        [
+                            "crewPositionId"    => 3,
+                            "description"       => "Old Position",
+                            "hasShiftWorker"    => true,
+                            "shiftWorkerName"   => "User 2"
+                        ]
                     ]
                 ]
             ]

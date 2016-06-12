@@ -12,6 +12,7 @@ dialog:
     confirm: Bevestigen
 
 shift:
+  shiftsIn: Shifts in
   notFilledIn: Nog niet ingevuld
   enrollInShift: Inschrijven voor shift
   confirmEnrollment: Inschrijven voor de shift op %(date)s als %(crewPosition)s?

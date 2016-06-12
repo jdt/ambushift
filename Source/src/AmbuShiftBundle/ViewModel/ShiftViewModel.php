@@ -14,7 +14,7 @@ class ShiftViewModel
         $this->month = $month;
     }
 
-    public function shifts()
+    public function month()
     {
         $shifts = [];
 
@@ -71,6 +71,11 @@ class ShiftViewModel
             ];
         }
 
-        return $shifts;
+        return 
+        [
+                "monthIndex"        => $this->month->getMonth(),
+                "year"              => $this->month->getYear(),
+                "shifts"            => $shifts
+        ];
     }
 }
