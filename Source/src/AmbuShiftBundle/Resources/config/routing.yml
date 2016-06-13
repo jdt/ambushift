@@ -6,6 +6,10 @@ shifts:
     path: /shifts
     defaults: { _controller: controller.shift:indexAction }
 
+monthshifts:
+    path: /shifts/{year}/{month}
+    defaults: { _controller: controller.shift:indexAction }
+
 shiftEnrollment:
     path:     /shifts/{shiftId}/crewPositions/{crewPositionId}/enroll
     defaults: { _controller: controller.shiftEnrollment:enrollAction }

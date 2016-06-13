@@ -2,6 +2,9 @@
 
 {% block body %}
     <h3>{{ 'shift.shiftsIn'|trans }} {{ view.month.monthIndex|trans({}, "months") }} {{ view.month.year }}</h3>
+    <a href="{{ path('monthshifts', { year: view.month.earlier.year, month: view.month.earlier.month }) }}">&lt;&lt; {{ 'shift.earlier'|trans }}</a>
+    ||
+    <a href="{{ path('monthshifts', { year: view.month.later.year, month: view.month.later.month }) }}">{{ 'shift.later'|trans }} &gt;&gt;</a>
     <div id="shiftOverview">
 	    <table class="table table-striped table-hover">
 	    	<tbody>
