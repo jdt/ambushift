@@ -12,6 +12,16 @@ class Month
 		$this->month = $month;
 	}
 
+	public function getMonth()
+	{
+		return $this->month;
+	}
+
+	public function getYear()
+	{
+		return $this->year;
+	}
+
 	public static function isValid($year, $month)
 	{
 		return Month::isValidPositiveInteger($year) && Month::isValidPositiveInteger($month) && $month > 0 && $month < 13;

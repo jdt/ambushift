@@ -2,6 +2,7 @@
 namespace AmbuShiftBundle\Repository;
 
 use AmbuShiftBundle\Repository\IOperatingMonthRepository;
+use AmbuShiftBundle\Entity\Month;
 use Doctrine\ORM\EntityManager;
 
 class OperatingMonthRepository implements IOperatingMonthRepository
@@ -13,7 +14,7 @@ class OperatingMonthRepository implements IOperatingMonthRepository
         $this->em = $entityManager;
     }
 
-    public function getOperatingMonth($year, $month)
+    public function getOperatingMonth(Month $month)
     {
         $query = $this->em->createQueryBuilder();
         return $query->select('operatingMonth, shift, vehicle, crewPosition, shiftWorker, user')
@@ -28,8 +29,8 @@ class OperatingMonthRepository implements IOperatingMonthRepository
                                    $query->expr()->eq('operatingMonth.month', ':month')
                                )
                      )
-                     ->setParameter('year', $year)
-                     ->setParameter('month', $month)
+                     ->setParameter('year', $month->getYear())
+                     ->setParameter('month', $month->getMonth())
                      ->getQuery()->getOneOrNullResult();
     }
 }

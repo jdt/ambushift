@@ -6,6 +6,7 @@ use AmbuShiftBundle\Util\IResponseBuilder;
 use AmbuShiftBundle\Repository\IOperatingMonthRepository;
 use AmbuShiftBundle\Service\ICalendar;
 use AmbuShiftBundle\ViewModel\ShiftViewModel;
+use AmbuShiftBundle\Entity\Month;
 
 class ShiftController
 {
@@ -24,7 +25,7 @@ class ShiftController
     {
     	$now = $this->calendar->getCurrentDate();
 
-    	$month = $this->operatingMonthRepository->getOperatingMonth($now->format("Y"), $now->format("n"));
+    	$month = $this->operatingMonthRepository->getOperatingMonth(new Month($now->format("Y"), $now->format("n")));
         
         return $this->responseBuilder->asView(
             'AmbuShiftBundle:Default:shift.html.twig',

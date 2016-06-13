@@ -2,6 +2,7 @@
 namespace AmbuShiftBundle\Tests\Repository;
 
 use AmbuShiftBundle\Repository\OperatingMonthRepository;
+use AmbuShiftBundle\Entity\Month;
 use Symfony\Bundle\FrameworkBundle\Test\KernelTestCase;
 
 class OperatingMonthRepositoryTest extends KernelTestCase
@@ -24,7 +25,7 @@ class OperatingMonthRepositoryTest extends KernelTestCase
 
     public function testGetOperatingMonth()
     {
-        $result = $this->repo->getOperatingMonth("2016", "5");
+        $result = $this->repo->getOperatingMonth(new Month(2016, 5));
         $this->assertNotNull($result);
     }
 }

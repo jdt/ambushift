@@ -3,6 +3,7 @@ namespace Tests\AmbuShiftBundle\Controller;
 
 use AmbuShiftBundle\Controller\ShiftController;
 use AmbuShiftBundle\Entity\OperatingMonth;
+use AmbuShiftBundle\Entity\Month;
 use AmbuShiftBundle\ViewModel\ShiftViewModel;
 
 use \DateTime;
@@ -28,7 +29,7 @@ class ShiftControllerTest extends PHPUnit_Framework_TestCase
 
         $month = new OperatingMonth("2016", "05");
     	$this->calendar->expects($this->once())->method("getCurrentDate")->will($this->returnValue(new DateTime("2016-05-01")));
-        $this->operatingMonthRepository->expects($this->once())->method('getOperatingMonth')->with($this->equalTo("2016"), $this->equalTo("05"))->will($this->returnValue($month));
+        $this->operatingMonthRepository->expects($this->once())->method('getOperatingMonth')->with($this->equalTo(new Month(2016, 5)))->will($this->returnValue($month));
 
         $expectedData = array("view" => new ShiftViewModel($month));
 
