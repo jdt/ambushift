@@ -1,6 +1,8 @@
 <?php
 namespace AmbuShiftBundle\Entity;
 
+use \DateTime;
+
 class Month
 {
 	private $year;
@@ -20,6 +22,22 @@ class Month
 	public function getYear()
 	{
 		return $this->year;
+	}
+
+	public function getEarlier()
+	{
+		$thisDate = DateTime::createFromFormat("Y-m-d", $this->year."-".$this->month."-1");
+		$thisDate->modify('first day of previous month');
+
+		return new Month($thisDate->format("Y"), $thisDate->format("n"));
+	}
+
+	public function getLater()
+	{
+		$thisDate = DateTime::createFromFormat("Y-m-d", $this->year."-".$this->month."-1");
+		$thisDate->modify('first day of next month');
+
+		return new Month($thisDate->format("Y"), $thisDate->format("n"));
 	}
 
 	public static function isValid($year, $month)
