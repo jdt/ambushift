@@ -18,6 +18,7 @@ shift:
   confirmEnrollment: Inschrijven voor de shift op %(date)s als %(crewPosition)s?
   earlier: Vroeger
   later: Later
+  noShiftsInMonth: Er zijn geen shifts voor de gekozen maand
 
 1: Maandag
 2: Dinsdag

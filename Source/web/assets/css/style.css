@@ -58,6 +58,11 @@
   padding: 0px 15px 0px 15px;
 }
 
+#shiftOverview
+{
+  padding-top: 5px;
+}
+
 #shiftOverview > table
 {
   width: 100%;
