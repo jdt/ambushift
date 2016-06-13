@@ -57,6 +57,16 @@ class ShiftViewModelTest extends PHPUnit_Framework_TestCase
         [
             "monthIndex"    => 6,
             "year"          => 2016,
+            "earlier"       => 
+            [
+                "year"  => 2016,
+                "month" => 5
+            ],
+            "later"       => 
+            [
+                "year"  => 2016,
+                "month" => 7
+            ],
             "shifts"        =>
             [
                 [

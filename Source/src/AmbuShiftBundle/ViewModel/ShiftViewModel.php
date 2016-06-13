@@ -2,6 +2,7 @@
 namespace AmbuShiftBundle\ViewModel;
 
 use AmbuShiftBundle\Entity\OperatingMonth;
+use AmbuShiftBundle\Entity\Month;
 
 class ShiftViewModel
 {
@@ -71,10 +72,24 @@ class ShiftViewModel
             ];
         }
 
+        $month = new Month($this->month->getYear(), $this->month->getMonth());
+        $earlier = $month->getEarlier();
+        $later = $month->getLater();
+
         return 
         [
                 "monthIndex"        => $this->month->getMonth(),
                 "year"              => $this->month->getYear(),
+                "earlier"           => 
+                    [
+                        "month" => $earlier->getMonth(),
+                        "year"  => $earlier->getYear()
+                    ],
+                "later"             => 
+                    [
+                        "month" => $later->getMonth(),
+                        "year"  => $later->getYear()
+                    ],
                 "shifts"            => $shifts
         ];
     }
