@@ -32,6 +32,32 @@ class ShiftRepositoryTest extends KernelTestCase
         $this->assertNotNull($result);
     }
 
+    public function testSelectShiftsByUserAfterShouldSelectShiftsStartedOnOrAfterDateTimeWhereUserEnrolled()
+    {
+        $query = $this->em->createQueryBuilder();
+        $user = $query->select('user')
+                      ->from('AmbuShiftBundle:User', 'user')
+                      ->where($query->expr()->eq('user.id', ':id'))
+                      ->setParameter('id', 2)
+                      ->getQuery()->getOneOrNullResult();
+
+        $shifts = $this->repo->selectShiftsByUserAfter($user, new DateTime("2016-05-06 5:00:00"));
+        $this->assertEquals(2, count($shifts));
+
+        $shifts = $this->repo->selectShiftsByUserAfter($user, new DateTime("2016-05-06 19:00:00"));
+        $this->assertEquals(1, count($shifts));
+
+        $query = $this->em->createQueryBuilder();
+        $user2 = $query->select('user')
+                      ->from('AmbuShiftBundle:User', 'user')
+                      ->where($query->expr()->eq('user.id', ':id'))
+                      ->setParameter('id', 1)
+                      ->getQuery()->getOneOrNullResult();
+
+        $shifts = $this->repo->selectShiftsByUserAfter($user2, new DateTime("2016-05-06 5:00:00"));
+        $this->assertEquals(0, count($shifts));
+    }
+
     public function testSave()
     {
         $this->em->getConnection()->beginTransaction();
