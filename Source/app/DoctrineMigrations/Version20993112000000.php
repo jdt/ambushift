@@ -55,6 +55,8 @@ class Version20993112000000 extends AbstractMigration implements ContainerAwareI
         $this->addSql('INSERT INTO ambushift_shift_worker(id, userId, crewPositionId, shiftId) VALUES (1, 2, 1, 1);');
         $this->addSql('INSERT INTO ambushift_shift_worker(id, userId, crewPositionId, shiftId) VALUES (2, 2, 2, 5);');
         $this->addSql('INSERT INTO ambushift_shift_worker(id, userId, crewPositionId, shiftId) VALUES (3, 2, 3, 8);');
+        $this->addSql('INSERT INTO ambushift_shift_worker(id, userId, crewPositionId, shiftId) VALUES (4, 1, 2, 1);');
+        $this->addSql('INSERT INTO ambushift_shift_worker(id, userId, crewPositionId, shiftId) VALUES (5, 1, 2, 6);');
     }
 
     /**
