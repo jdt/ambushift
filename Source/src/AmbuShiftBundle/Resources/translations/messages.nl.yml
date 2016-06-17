@@ -11,6 +11,10 @@ dialog:
     cancel: Annuleren
     confirm: Bevestigen
 
+home:
+  upcomingShifts: Mijn komende shifts
+  noMoreFutureEnrollments: Er zijn geen inschrijvingen voor komende shifts
+
 shift:
   shiftsIn: Shifts in
   notFilledIn: Nog niet ingevuld
