@@ -72,6 +72,14 @@ class Shift
         return $worker;
     }
 
+    public function getShiftWorkerForUser(User $user)
+    {
+        $worker = Arrays::find($this->getShiftWorkers(), function($w) use ($user) { return $w->getUser()->getId() == $user->getId(); });
+        if ($worker == false)
+            return null;
+        return $worker;
+    }
+
     public function enroll(User $user, $crewPositionId)
     {
         $crewPosition = Arrays::find($this->getVehicle()->getCrewPositions(), function($cp) use ($crewPositionId) { return $cp->getId() == $crewPositionId; });
